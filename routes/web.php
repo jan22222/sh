@@ -31,15 +31,9 @@ use App\Http\Controllers\Auth\RegisterCoworkerController;
 
 //Diese Route leitet nach login entweder zum user oder admin dashboard
 Route::get('/', function () {
-    if(!auth()->user()){
-        return view('home');
-    }
-    if(auth()->user()->is_admin){
-        return view('admin.home');
-    }
-    if(auth()->user()){
+ 
         return view('user.home');
-    }
+    
 })->name('home');
 
 Route::get('/tasks', function(){dd('tasklist');})->name('tasklist');
